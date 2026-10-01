@@ -4,17 +4,15 @@ import java.util.Iterator;
 /**
  * Exercise (Chapter 7: Collections) — making a class {@code Iterable}.
  *
- * A class that implements {@code Iterable<E>} can be used in an enhanced
- * for-loop ("for-each"). {@code Week} already declares
- * {@code implements Iterable<String>}, but its {@link #iterator()} method is not
- * finished. Complete it so it yields the seven days in order (Sunday first).
- * Edit only this file.
+ * <p>A class that implements {@code Iterable<E>} can be used in an enhanced for-loop ("for-each").
+ * {@code Week} already declares {@code implements Iterable<String>}, but its {@link #iterator()}
+ * method is not finished. Complete it so it yields the seven days in order (Sunday first). Edit
+ * only this file.
  *
- * How iteration works: {@code for (String day : week)} calls {@code week.iterator()}
- * once to get an {@code Iterator<String>}, then repeatedly calls {@code hasNext()}
- * and {@code next()} on it.
+ * <p>How iteration works: {@code for (String day : week)} calls {@code week.iterator()} once to get
+ * an {@code Iterator<String>}, then repeatedly calls {@code hasNext()} and {@code next()} on it.
  *
- * Relevant reading: Chapter 7. Collections.
+ * <p>Relevant reading: Chapter 7. Collections.
  */
 public class Week implements Iterable<String> {
 

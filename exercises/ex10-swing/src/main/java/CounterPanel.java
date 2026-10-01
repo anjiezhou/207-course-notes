@@ -7,16 +7,14 @@ import javax.swing.SwingUtilities;
 /**
  * Exercise (Chapter 4: GUIs with Swing) — handling button clicks.
  *
- * This panel shows a label and a button. Your task is to make clicking the
- * button increment a counter and update the label to {@code "Count: N"}. You do
- * this by adding an <em>action listener</em> to the button, as described in
- * Chapter 4.3. Edit only this file.
+ * <p>This panel shows a label and a button. Your task is to make clicking the button increment a
+ * counter and update the label to {@code "Count: N"}. You do this by adding an <em>action
+ * listener</em> to the button, as described in Chapter 4.3. Edit only this file.
  *
- * You can run {@code main} to see the window and click the button yourself, and
- * the tests click the button for you (with {@code button.doClick()}) and check
- * the label.
+ * <p>You can run {@code main} to see the window and click the button yourself, and the tests click
+ * the button for you (with {@code button.doClick()}) and check the label.
  *
- * Relevant reading: 4.3 Handling button clicks.
+ * <p>Relevant reading: 4.3 Handling button clicks.
  */
 public class CounterPanel extends JPanel {
 

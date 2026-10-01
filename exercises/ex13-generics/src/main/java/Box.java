@@ -1,12 +1,12 @@
 /**
  * Exercise (Chapter 6: Generics) — a custom generic class and a bounded method.
  *
- * {@code Box<T>} is a generic class: {@code T} is a type parameter that is
- * filled in when you create a box, e.g. {@code new Box<String>()}. Complete the
- * instance methods so a box can store and return a value of its type, and
- * complete the bounded generic method {@link #max}. Edit only this file.
+ * <p>{@code Box<T>} is a generic class: {@code T} is a type parameter that is filled in when you
+ * create a box, e.g. {@code new Box<String>()}. Complete the instance methods so a box can store
+ * and return a value of its type, and complete the bounded generic method {@link #max}. Edit only
+ * this file.
  *
- * Relevant reading: 6.1 Custom Generic Classes, 6.2 bounded type parameters.
+ * <p>Relevant reading: 6.1 Custom Generic Classes, 6.2 bounded type parameters.
  */
 public class Box<T> {
 
@@ -42,9 +42,8 @@ public class Box<T> {
   }
 
   /**
-   * Returns the larger of {@code a} and {@code b}. The bound
-   * {@code <T extends Comparable<T>>} guarantees the values can be compared with
-   * {@code compareTo}.
+   * Returns the larger of {@code a} and {@code b}. The bound {@code <T extends Comparable<T>>}
+   * guarantees the values can be compared with {@code compareTo}.
    *
    * @param a the first value
    * @param b the second value

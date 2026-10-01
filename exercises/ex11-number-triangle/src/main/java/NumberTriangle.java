@@ -6,16 +6,14 @@ import java.nio.file.Path;
 /**
  * Exercise (Chapter: APIs, JSON, and Files) — reading data from a file into objects.
  *
- * This exercise practises reading data from a file and building a structure of
- * objects to represent it. You will complete two methods:
- * {@link #loadTriangle(String)} and {@link #retrieve(String)}.
- * Edit only this file.
+ * <p>This exercise practises reading data from a file and building a structure of objects to
+ * represent it. You will complete two methods: {@link #loadTriangle(String)} and {@link
+ * #retrieve(String)}. Edit only this file.
  *
- * A {@code NumberTriangle} is like a tree, but some nodes in the structure have
- * two parents. The structure is shown below. Observe that the parents of e are b
- * and c, whereas d and f each only have one parent. Each row is complete and will
- * never be missing a node, so each row has one more {@code NumberTriangle} object
- * than the row above it.
+ * <p>A {@code NumberTriangle} is like a tree, but some nodes in the structure have two parents. The
+ * structure is shown below. Observe that the parents of e are b and c, whereas d and f each only
+ * have one parent. Each row is complete and will never be missing a node, so each row has one more
+ * {@code NumberTriangle} object than the row above it.
  *
  * <pre>
  *                  a
@@ -24,15 +22,15 @@ import java.nio.file.Path;
  *            h   i   j   k
  * </pre>
  *
- * The sharing of nodes between rows is the interesting part: if {@code base} refers
- * to the topmost object, then {@code base.left.right == base.right.left} — they are
- * the very same object (aliasing), not two equal copies.
+ * The sharing of nodes between rows is the interesting part: if {@code base} refers to the topmost
+ * object, then {@code base.left.right == base.right.left} — they are the very same object
+ * (aliasing), not two equal copies.
  *
- * This class is minimally defined and is only intended to be constructed using the
- * {@link #loadTriangle(String)} method. There is no code enforcing the structure
- * described above, and you do not have to write any either.
+ * <p>This class is minimally defined and is only intended to be constructed using the {@link
+ * #loadTriangle(String)} method. There is no code enforcing the structure described above, and you
+ * do not have to write any either.
  *
- * Relevant reading: the file-reading section of the "APIs, JSON, and Files" chapter.
+ * <p>Relevant reading: the file-reading section of the "APIs, JSON, and Files" chapter.
  */
 public class NumberTriangle {
 
@@ -87,16 +85,16 @@ public class NumberTriangle {
   }
 
   /**
-   * Follows path through this NumberTriangle structure ('l' = left; 'r' = right) and
-   * returns the root value at the end of the path. An empty string returns the root
-   * of this NumberTriangle.
+   * Follows path through this NumberTriangle structure ('l' = left; 'r' = right) and returns the
+   * root value at the end of the path. An empty string returns the root of this NumberTriangle.
    *
-   * You can decide if you want to use a recursive or an iterative approach.
+   * <p>You can decide if you want to use a recursive or an iterative approach.
    *
-   * You can assume that:
+   * <p>You can assume that:
+   *
    * <ul>
-   *   <li>the length of path is less than the height of this NumberTriangle structure;</li>
-   *   <li>each character in the string is either 'l' or 'r'.</li>
+   *   <li>the length of path is less than the height of this NumberTriangle structure;
+   *   <li>each character in the string is either 'l' or 'r'.
    * </ul>
    *
    * @param path the path to follow through this NumberTriangle
@@ -115,22 +113,24 @@ public class NumberTriangle {
   /**
    * Reads in the NumberTriangle structure from a file.
    *
-   * You may assume that it is a valid format with a height of at least 1, so there
-   * is at least one line with a number on it to start the file. Numbers on a line
-   * are separated by spaces. See {@code input_tree.txt} for an example.
+   * <p>You may assume that it is a valid format with a height of at least 1, so there is at least
+   * one line with a number on it to start the file. Numbers on a line are separated by spaces. See
+   * {@code input_tree.txt} for an example.
    *
-   * The first row is the root of the NumberTriangle (call it 0).
-   * The second line contains the two children of the root (call them 1L and 1R).
-   * The third line contains the three numbers corresponding to:
+   * <p>The first row is the root of the NumberTriangle (call it 0). The second line contains the
+   * two children of the root (call them 1L and 1R). The third line contains the three numbers
+   * corresponding to:
+   *
    * <ul>
-   *   <li>the left child of 1L, call it 2LL;</li>
-   *   <li>the right child of 1L, call it 2LR;</li>
-   *   <li>the left child of 1R, call it 2RL;</li>
-   *   <li>the right child of 1R, call it 2RR.</li>
+   *   <li>the left child of 1L, call it 2LL;
+   *   <li>the right child of 1L, call it 2LR;
+   *   <li>the left child of 1R, call it 2RL;
+   *   <li>the right child of 1R, call it 2RR.
    * </ul>
-   * NOTE: 2RL and 2LR must refer to the SAME underlying NumberTriangle object.
-   * That is, if variable {@code base} refers to the object at the top of the
-   * triangle, then {@code base.left.right == base.right.left}.
+   *
+   * NOTE: 2RL and 2LR must refer to the SAME underlying NumberTriangle object. That is, if variable
+   * {@code base} refers to the object at the top of the triangle, then {@code base.left.right ==
+   * base.right.left}.
    *
    * <pre>
    *              0
@@ -140,22 +140,20 @@ public class NumberTriangle {
    *       2LL  2LR*  2RR    *2LR == 2RL
    * </pre>
    *
-   * Hint 0: Start by making a plan and scaffolding what you plan to do. If you are
-   *         still finding it hard to "think in Java", write some comments describing
-   *         what you want to do first.
+   * Hint 0: Start by making a plan and scaffolding what you plan to do. If you are still finding it
+   * hard to "think in Java", write some comments describing what you want to do first.
    *
-   * Hint 1: Think about what you need to keep track of on each iteration of the loop
-   *         and make appropriate variables to store those things. Working through
-   *         {@code little_tree.txt} by hand should help you develop the general logic.
+   * <p>Hint 1: Think about what you need to keep track of on each iteration of the loop and make
+   * appropriate variables to store those things. Working through {@code little_tree.txt} by hand
+   * should help you develop the general logic.
    *
-   * Hint 2: Related to Hint 1, think about how to connect NumberTriangle objects
-   *         between adjacent rows in the structure. Remember that the row you just
-   *         built becomes the children of the row before it.
+   * <p>Hint 2: Related to Hint 1, think about how to connect NumberTriangle objects between
+   * adjacent rows in the structure. Remember that the row you just built becomes the children of
+   * the row before it.
    *
-   * Hint 3: If you are still stuck, look for a subproblem that you can solve, then
-   *         design the logic of your solution around a helper method that you
-   *         implement separately. Decomposing a problem this way makes it much more
-   *         manageable.
+   * <p>Hint 3: If you are still stuck, look for a subproblem that you can solve, then design the
+   * logic of your solution around a helper method that you implement separately. Decomposing a
+   * problem this way makes it much more manageable.
    *
    * @param fname the file to load the NumberTriangle structure from
    * @return the topmost NumberTriangle object in the structure read from the file
