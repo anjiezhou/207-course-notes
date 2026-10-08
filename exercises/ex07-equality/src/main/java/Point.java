@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 /**
  * Exercise (Chapter 2: Classes) — overriding {@code toString}, {@code equals}, and {@code
  * hashCode}.

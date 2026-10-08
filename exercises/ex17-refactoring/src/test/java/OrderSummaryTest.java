@@ -1,15 +1,14 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link OrderSummary}. Do NOT modify this file.
  *
- * <p>These tests pass before you start. They pin down the observable behaviour of
- * {@code summarize} — the exact string it returns — and say nothing about how it
- * is structured internally. That is deliberate: you are free to extract methods,
- * split loops, and introduce constants however you like, as long as every test
- * here still passes afterwards.
+ * <p>These tests pass before you start. They pin down the observable behaviour of {@code summarize}
+ * — the exact string it returns — and say nothing about how it is structured internally. That is
+ * deliberate: you are free to extract methods, split loops, and introduce constants however you
+ * like, as long as every test here still passes afterwards.
  */
 class OrderSummaryTest {
 
@@ -40,8 +39,7 @@ class OrderSummaryTest {
             + "Tax: $1.30\n"
             + "Total: $11.30";
     assertEquals(
-        expected,
-        OrderSummary.summarize("Bob", new String[] {"Widget"}, new double[] {10.0}));
+        expected, OrderSummary.summarize("Bob", new String[] {"Widget"}, new double[] {10.0}));
   }
 
   @Test
@@ -61,9 +59,7 @@ class OrderSummaryTest {
     assertEquals(
         expected,
         OrderSummary.summarize(
-            "Cai",
-            new String[] {"Widget", "Gadget", "Doodad"},
-            new double[] {10.0, 20.0, 30.0}));
+            "Cai", new String[] {"Widget", "Gadget", "Doodad"}, new double[] {10.0, 20.0, 30.0}));
   }
 
   @Test
@@ -82,9 +78,7 @@ class OrderSummaryTest {
     assertEquals(
         expected,
         OrderSummary.summarize(
-            "Dana",
-            new String[] {"Monitor", "Keyboard"},
-            new double[] {100.0, 150.0}));
+            "Dana", new String[] {"Monitor", "Keyboard"}, new double[] {100.0, 150.0}));
   }
 
   @Test

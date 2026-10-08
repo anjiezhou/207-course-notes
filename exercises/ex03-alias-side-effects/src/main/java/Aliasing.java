@@ -39,7 +39,7 @@ public class Aliasing {
    */
   public static void addInPlace(int[] arr, int amount) {
     // TODO: complete
-    for (int index=0; index < arr.length; index++) {
+    for (int index = 0; index < arr.length; index++) {
       arr[index] += amount;
     }
   }
@@ -55,7 +55,7 @@ public class Aliasing {
   public static int[] addCopy(int[] arr, int amount) {
     // TODO: complete
     int[] arrCopy = new int[arr.length];
-    for (int i=0; i < arr.length; i++) {
+    for (int i = 0; i < arr.length; i++) {
       arrCopy[i] = arr[i] + amount;
     }
     return arrCopy;

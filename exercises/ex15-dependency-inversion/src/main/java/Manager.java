@@ -1,30 +1,26 @@
 /**
  * Exercise (Chapter 9: Design Principles) — the Dependency Inversion Principle.
  *
- * <p>{@code Manager} is the <em>high-level</em> class: managing work is the core
- * logic we care about. {@link Worker} and {@link SuperWorker} are <em>low-level</em>
- * details. As written, {@code Manager} depends directly on the concrete
- * {@code Worker} class, so it only ever manages a plain {@code Worker} — even when
- * you hand it a {@code SuperWorker}. Adding another kind of worker would mean
- * rewriting this class.
+ * <p>{@code Manager} is the <em>high-level</em> class: managing work is the core logic we care
+ * about. {@link Worker} and {@link SuperWorker} are <em>low-level</em> details. As written, {@code
+ * Manager} depends directly on the concrete {@code Worker} class, so it only ever manages a plain
+ * {@code Worker} — even when you hand it a {@code SuperWorker}. Adding another kind of worker would
+ * mean rewriting this class.
  *
- * <p>Apply the DIP so that {@code Manager} depends on the {@link IWorker}
- * abstraction instead:
+ * <p>Apply the DIP so that {@code Manager} depends on the {@link IWorker} abstraction instead:
  *
  * <ol>
- *   <li>change the field's type from {@code Worker} to {@code IWorker}, and</li>
- *   <li>store the worker that was actually passed in, rather than creating one
- *       here.</li>
+ *   <li>change the field's type from {@code Worker} to {@code IWorker}, and
+ *   <li>store the worker that was actually passed in, rather than creating one here.
  * </ol>
  *
- * <p>Notice what you are <em>not</em> asked to do: you do not need to add a
- * second field, a second setter, or an {@code if} statement per worker type. That
- * is the payoff — once {@code Manager} depends on the abstraction, it works with
- * <em>any</em> implementation of {@code IWorker}, including ones that do not exist
- * yet. Edit only this file.
+ * <p>Notice what you are <em>not</em> asked to do: you do not need to add a second field, a second
+ * setter, or an {@code if} statement per worker type. That is the payoff — once {@code Manager}
+ * depends on the abstraction, it works with <em>any</em> implementation of {@code IWorker},
+ * including ones that do not exist yet. Edit only this file.
  *
- * <p>Relevant reading: 9.2.5. DIP (see the "Example: managers and workers"
- * section, which this exercise is based on).
+ * <p>Relevant reading: 9.2.5. DIP (see the "Example: managers and workers" section, which this
+ * exercise is based on).
  */
 public class Manager {
 

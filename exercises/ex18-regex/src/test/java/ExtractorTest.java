@@ -1,9 +1,8 @@
-import java.util.List;
-
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+import org.junit.jupiter.api.Test;
 
 /** Tests for {@link Extractor}. Do NOT modify this file. */
 class ExtractorTest {
@@ -45,7 +44,8 @@ class ExtractorTest {
 
   @Test
   void masksASingleEmail() {
-    assertEquals("Contact *** for help.", Extractor.maskEmails("Contact user@example.com for help."));
+    assertEquals(
+        "Contact *** for help.", Extractor.maskEmails("Contact user@example.com for help."));
   }
 
   @Test

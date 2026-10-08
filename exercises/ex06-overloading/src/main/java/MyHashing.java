@@ -1,13 +1,11 @@
 /**
  * Exercise (Chapter 2: Classes) — overloading, constructors, and static methods.
  *
- * "Overloading" means having several methods (or constructors) with the same
- * name that differ in their parameters. Complete the bodies below so the three
- * `hash` methods and the two constructors behave as documented, then run
- * MyHashingTest. Edit only this file.
+ * <p>"Overloading" means having several methods (or constructors) with the same name that differ in
+ * their parameters. Complete the bodies below so the three `hash` methods and the two constructors
+ * behave as documented, then run MyHashingTest. Edit only this file.
  *
- * Relevant reading: 2.4. Constructors, 2.5. Overloading methods, 2.7. Static
- * methods.
+ * <p>Relevant reading: 2.4. Constructors, 2.5. Overloading methods, 2.7. Static methods.
  */
 public class MyHashing {
 
@@ -47,9 +45,9 @@ public class MyHashing {
   }
 
   /**
-   * Stores {@code value} as the new seed and returns the sum of the previous
-   * seed and {@code value}, taken modulo {@link #MODULO}. (A char used in
-   * arithmetic is automatically treated as its numeric code, e.g. 'A' is 65.)
+   * Stores {@code value} as the new seed and returns the sum of the previous seed and {@code
+   * value}, taken modulo {@link #MODULO}. (A char used in arithmetic is automatically treated as
+   * its numeric code, e.g. 'A' is 65.)
    *
    * @param value the new seed, as a character
    * @return (previous seed + value) % MODULO
@@ -62,9 +60,9 @@ public class MyHashing {
   }
 
   /**
-   * Returns the sum of the numeric codes of the characters in {@code value}.
-   * This is a static (class) method: it belongs to the class, not to any one
-   * object, so it has no seed to read or change.
+   * Returns the sum of the numeric codes of the characters in {@code value}. This is a static
+   * (class) method: it belongs to the class, not to any one object, so it has no seed to read or
+   * change.
    *
    * @param value the string to hash
    * @return the sum of the characters' numeric codes
@@ -72,7 +70,7 @@ public class MyHashing {
   public static int hash(String value) {
     // TODO: String.toCharArray() may help.
     int sum = 0;
-    for (int i=0; i < value.length(); i++) {
+    for (int i = 0; i < value.length(); i++) {
       sum += value.charAt(i);
     }
     return sum;

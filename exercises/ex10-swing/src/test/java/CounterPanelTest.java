@@ -1,12 +1,12 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link CounterPanel}. Do NOT modify this file.
  *
- * These build the panel and click the button programmatically with
- * {@code doClick()} — no window is shown, so they run without a display.
+ * <p>These build the panel and click the button programmatically with {@code doClick()} — no window
+ * is shown, so they run without a display.
  */
 class CounterPanelTest {
 

@@ -1,14 +1,13 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link Robot}. Do NOT modify this file.
  *
- * Because the Robot count is shared (static) and keeps growing, these tests
- * check it relative to its value before each step rather than against fixed
- * numbers.
+ * <p>Because the Robot count is shared (static) and keeps growing, these tests check it relative to
+ * its value before each step rather than against fixed numbers.
  */
 class RobotTest {
 

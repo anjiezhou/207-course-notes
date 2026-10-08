@@ -1,17 +1,16 @@
 /**
  * Exercise (Chapter 13: Refactoring) — Replace Constructor with Factory Method.
  *
- * Right now callers build a Temperature with {@code new Temperature(celsius)},
- * which is easy to misread: is that number Celsius or Fahrenheit? Applying the
- * "Replace Constructor with Factory Method" refactoring, add two clearly-named
- * static factory methods so the caller's intent is obvious. Complete
- * {@link #fromCelsius(double)} and {@link #fromFahrenheit(double)}. Edit only
+ * <p>Right now callers build a Temperature with {@code new Temperature(celsius)}, which is easy to
+ * misread: is that number Celsius or Fahrenheit? Applying the "Replace Constructor with Factory
+ * Method" refactoring, add two clearly-named static factory methods so the caller's intent is
+ * obvious. Complete {@link #fromCelsius(double)} and {@link #fromFahrenheit(double)}. Edit only
  * this file.
  *
- * (Once the factories exist, a common next step is to make the constructor
- * {@code private} so callers must go through them — try it and re-run the tests.)
+ * <p>(Once the factories exist, a common next step is to make the constructor {@code private} so
+ * callers must go through them — try it and re-run the tests.)
  *
- * Relevant reading: 13.8. Replace Constructor with Factory Method.
+ * <p>Relevant reading: 13.8. Replace Constructor with Factory Method.
  */
 public class Temperature {
 
@@ -56,8 +55,7 @@ public class Temperature {
   }
 
   /**
-   * Creates a Temperature from a value in degrees Fahrenheit, converting it to
-   * Celsius first.
+   * Creates a Temperature from a value in degrees Fahrenheit, converting it to Celsius first.
    *
    * @param fahrenheit degrees Fahrenheit
    * @return a Temperature representing that value

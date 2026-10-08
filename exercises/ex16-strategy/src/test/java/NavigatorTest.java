@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 /** Tests for {@link Navigator} and the direction strategies. Do NOT modify this file. */
 class NavigatorTest {

@@ -9,25 +9,22 @@ import javax.swing.SwingUtilities;
 /**
  * Exercise (Chapter 4: GUIs with Swing) — matching a layout.
  *
- * Press ▶ on {@code main} to open the window. Right now every component is
- * crammed into a single row. Rearrange the components in {@link #buildForm()} —
- * using nested panels and layout managers (see 4.2) — so the window matches the
- * target screenshot in the notes: the two labelled text fields stacked
- * vertically, with the "Submit" and "Cancel" buttons centred in a row beneath
- * them.
+ * <p>Press ▶ on {@code main} to open the window. Right now every component is crammed into a single
+ * row. Rearrange the components in {@link #buildForm()} — using nested panels and layout managers
+ * (see 4.2) — so the window matches the target screenshot in the notes: the two labelled text
+ * fields stacked vertically, with the "Submit" and "Cancel" buttons centred in a row beneath them.
  *
- * There is no automated test for this exercise: you check it by running it and
- * comparing with the picture. See "4.5 Testing UI code" for why UI layout is
- * usually verified by eye rather than by a test.
+ * <p>There is no automated test for this exercise: you check it by running it and comparing with
+ * the picture. See "4.5 Testing UI code" for why UI layout is usually verified by eye rather than
+ * by a test.
  *
- * Relevant reading: 4.1 Creating and showing a window, 4.2 Java Swing visual
- * components.
+ * <p>Relevant reading: 4.1 Creating and showing a window, 4.2 Java Swing visual components.
  */
 public class RegistrationForm {
 
   /**
-   * Builds the form panel. Change the layout here — the components you need are
-   * all present, but they are arranged in a single row rather than stacked.
+   * Builds the form panel. Change the layout here — the components you need are all present, but
+   * they are arranged in a single row rather than stacked.
    *
    * @return the form's root panel
    */
