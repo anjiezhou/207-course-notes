@@ -27,6 +27,75 @@ abstract class Item {
   + getCatalogueNumber() : String
 }
 
+abstract class BorrowableItem {
+  - {static} loadPeriod : Period
+  - onHoldMemberNumbersQueue : Queue<Integer>
+  - currentOnLoanMemberNumber : Integer
+  + getLoadPeriod() : Period
+  + getOnHoldMemberNumbersQueue() : Queue<Integer>
+  + getCurrentOnLoanMemberNumber() : Integer
+}
+
+class BorrowableBook {
+}
+
+class BorrowableDVD {
+}
+
+abstract class ReferenceOnlyItem {
+}
+
+class ReferenceOnlyBook {
+}
+
+class ReferenceOnlyDVD {
+}
+
+abstract class People {
+}
+
+class Librarian {
+  + waveLateFee(member : Member) : boolean
+  + addItemToCatalog(item : Item) : boolean
+}
+
+class Member {
+  - memberNumber : int
+  - fee : BigDecimal
+  - onLoanItems : Set<Item>
+  + getMemberNumber() : int
+  + getFee() : BigDecimal
+  + getOnLoanItems() : Set<Item>
+  + logIn() : boolean
+  + placeHold(item : Item) : boolean
+}
+
+class Library {
+  - catalog : Set<Item>
+  - people : Set<People>
+  + getCatalog() : Set<Item>
+  + getPeople() : Set<People>
+  + borrow(item : Item, member : Member) : boolean
+}
+
+' PlantUML cheat-sheet:
+'   interface Name { + method() : Type }
+'   abstract class Name { # field : Type }
+'   class Name { - field : Type }
+'   Parent    <|-- Child    ' generalization: Child extends Parent
+'   Interface <|.. Class    ' realization:    Class implements Interface
+
+Library <--o Item
+Library <--o People
+Item <|-- BorrowableItem
+Item <|-- ReferenceOnlyItem
+BorrowableItem <|-- BorrowableBook
+BorrowableItem <|-- BorrowableDVD
+ReferenceOnlyItem <|-- ReferenceOnlyBook
+ReferenceOnlyItem <|-- ReferenceOnlyDVD
+People <|-- Member
+People <|-- Librarian
+
 ' TODO: add boxes for Book and DVD. What differs between them — a whole class,
 '       or just the value of a loan-period field?
 
