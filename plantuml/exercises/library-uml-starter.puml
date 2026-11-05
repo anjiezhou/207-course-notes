@@ -1,7 +1,8 @@
-@startuml
-skinparam dpi 150
+@startuml Entities
+skinparam dpi 96
 skinparam classAttributeIconSize 0
 hide empty members
+hide methods
 
 ' Your task (Chapter 8, Question 1): draw the UML class diagram for the library
 ' specification — items, books, DVDs, reference-only items, members, librarians,
@@ -20,81 +21,179 @@ hide empty members
 ' (Putting the parent/interface on the LEFT of the arrow keeps it on top, which
 '  is the convention used in these notes.)
 
-abstract class Item {
-  - title : String
-  - catalogueNumber : String
-  + getTitle() : String
-  + getCatalogueNumber() : String
+package "Entities Layer" {
+
+  package "High-level entities" {
+
+    abstract class Item {
+      - title : String
+      - catalogueNumber : String
+      - borrowPolicy : LoanPolicy
+      - holdPolicy : HoldPolicy
+      + getTitle() : String
+      + getCatalogueNumber() : String
+      + getBorrowPolicy() : LoanPolicy
+      + getHoldPolicy() : HoldPolicy
+    }
+
+    interface LoanPolicy {
+      + isBorrowable() : boolean
+    }
+
+    interface BorrowablePolicy {
+      + isOnLoan() : boolean
+      + getLoanPeriod() : Period
+      + getCurrentOnLoanMemberNumber() : Integer
+      + setCurrentOnLoanMemberNumber(memberEntity : MemberEntity) : boolean
+    }
+
+    interface HoldPolicy {
+      + isHoldable() : boolean
+    }
+
+    interface HoldablePolicy {
+      + getOnHoldMemberNumber() : Integer
+      + setOnHoldMemberNumber(memberEntity : MemberEntity) : boolean
+    }
+
+    interface ReferenceOnlyPolicy {
+    }
+
+    abstract class BookEntity {
+    }
+
+    abstract class DvdEntity {
+    }
+
+    abstract class People {
+      + idNumber : int
+      + getIdNumber() : int
+    }
+
+    abstract class LibrarianEntity {
+    }
+
+    abstract class MemberEntity {
+      - fee : BigDecimal
+      - onLoanItems : Set<Item>
+      + getFee() : BigDecimal
+      + getOnLoanItems() : Set<Item>
+      + addLoanItem(item : Item) : boolean
+      + setFee(newFee : BigDecimal) : boolean
+    }
+
+    abstract class LibraryEntity {
+      - catalog : Set<Item>
+      - people : Set<People>
+      + getCatalog() : Set<Item>
+      + getPeople() : Set<People>
+    }
+
+  }
+
+  package "Lower-level implementations" {
+
+    class Borrowable {
+      - loanPeriod : Period
+      - currentOnLoanMemberNumber : Integer
+    }
+
+    class Holdable {
+      - onHoldMemberNumber : Integer
+    }
+
+    class Librarian {
+    }
+
+    class Member {
+    }
+
+    class Library {
+    }
+
+    class Book {
+    }
+
+    class Dvd {
+    }
+  }
+
+  Item <--o LibraryEntity
+  People <--o LibraryEntity
+  LibraryEntity <|-- Library
+  Item <|-- BookEntity
+  Item <|-- DvdEntity
+  BookEntity <|-- Book
+  DvdEntity <|-- Dvd
+  LoanPolicy <--* Item
+  LoanPolicy <|.. BorrowablePolicy
+  LoanPolicy <|.. ReferenceOnlyPolicy
+  BorrowablePolicy <|.. Borrowable
+  HoldPolicy <--* Item
+  HoldPolicy <|.. HoldablePolicy
+  HoldablePolicy <|.. Holdable
+  People <|-- MemberEntity
+  People <|-- LibrarianEntity
+  LibrarianEntity <|-- Librarian
+  MemberEntity <|-- Member
 }
 
-abstract class BorrowableItem {
-  - {static} loadPeriod : Period
-  - onHoldMemberNumbersQueue : Queue<Integer>
-  - currentOnLoanMemberNumber : Integer
-  + getLoadPeriod() : Period
-  + getOnHoldMemberNumbersQueue() : Queue<Integer>
-  + getCurrentOnLoanMemberNumber() : Integer
+@enduml
+
+@startuml UseCases
+hide methods
+
+skinparam dpi 96
+skinparam classAttributeIconSize 0
+hide empty members
+
+package "Entities Layer (referenced)" {
+  abstract class Item
+  abstract class People
+  abstract class LibraryEntity
+  abstract class MemberEntity
+  abstract class LibrarianEntity
 }
 
-class BorrowableBook {
+package "Use Cases Layer" {
+
+  class PlaceHoldInteractor {
+    + placeHold(libraryEntity : LibraryEntity, item : Item) : boolean
+  }
+
+  class LogInInteractor {
+    + logIn(libraryEntity : LibraryEntity, people : People) : boolean
+  }
+
+  class BorrowInteractor {
+    + borrowRequest(libraryEntity : LibraryEntity, item : Item, memberEntity : MemberEntity) : boolean
+  }
+
+  class AddItemToCatalogInteractor {
+    + addItemToCatalog(libraryEntity : LibraryEntity, item : Item) : boolean
+  }
+
+  class WaveLateFeeInteractor {
+    + waveLateFee(libraryEntity : LibraryEntity, memberEntity : MemberEntity) : boolean
+  }
+
+  Item <-- PlaceHoldInteractor
+  LibrarianEntity <-- PlaceHoldInteractor
+
+  LibraryEntity <-- LogInInteractor
+  People <-- LogInInteractor
+
+  LibraryEntity <-- BorrowInteractor
+  Item <-- BorrowInteractor
+  MemberEntity <-- BorrowInteractor
+
+  LibraryEntity <-- AddItemToCatalogInteractor
+  Item <-- AddItemToCatalogInteractor
+
+  LibraryEntity <-- WaveLateFeeInteractor
+  MemberEntity <-- WaveLateFeeInteractor
 }
 
-class BorrowableDVD {
-}
-
-abstract class ReferenceOnlyItem {
-}
-
-class ReferenceOnlyBook {
-}
-
-class ReferenceOnlyDVD {
-}
-
-abstract class People {
-}
-
-class Librarian {
-  + waveLateFee(member : Member) : boolean
-  + addItemToCatalog(item : Item) : boolean
-}
-
-class Member {
-  - memberNumber : int
-  - fee : BigDecimal
-  - onLoanItems : Set<Item>
-  + getMemberNumber() : int
-  + getFee() : BigDecimal
-  + getOnLoanItems() : Set<Item>
-  + logIn() : boolean
-  + placeHold(item : Item) : boolean
-}
-
-class Library {
-  - catalog : Set<Item>
-  - people : Set<People>
-  + getCatalog() : Set<Item>
-  + getPeople() : Set<People>
-  + borrow(item : Item, member : Member) : boolean
-}
-
-' PlantUML cheat-sheet:
-'   interface Name { + method() : Type }
-'   abstract class Name { # field : Type }
-'   class Name { - field : Type }
-'   Parent    <|-- Child    ' generalization: Child extends Parent
-'   Interface <|.. Class    ' realization:    Class implements Interface
-
-Library <--o Item
-Library <--o People
-Item <|-- BorrowableItem
-Item <|-- ReferenceOnlyItem
-BorrowableItem <|-- BorrowableBook
-BorrowableItem <|-- BorrowableDVD
-ReferenceOnlyItem <|-- ReferenceOnlyBook
-ReferenceOnlyItem <|-- ReferenceOnlyDVD
-People <|-- Member
-People <|-- Librarian
 
 ' TODO: add boxes for Book and DVD. What differs between them — a whole class,
 '       or just the value of a loan-period field?
