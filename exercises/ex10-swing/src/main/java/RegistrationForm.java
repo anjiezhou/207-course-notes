@@ -1,7 +1,4 @@
-import java.awt.FlowLayout;
 import javax.swing.*;
-
-import static javax.swing.BoxLayout.Y_AXIS;
 
 /**
  * Exercise (Chapter 4: GUIs with Swing) — matching a layout.
